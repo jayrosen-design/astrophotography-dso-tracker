@@ -56,10 +56,10 @@ const Controls: React.FC<ControlsProps> = ({
           <SelectTrigger className="bg-gray-700 border-gray-600 text-white">
             <SelectValue placeholder="All Seasons" />
           </SelectTrigger>
-          <SelectContent className="bg-gray-700 border-gray-600">
-            <SelectItem value="all">All Seasons</SelectItem>
+          <SelectContent className="bg-gray-700 border-gray-600 text-white">
+            <SelectItem value="all" className="text-white hover:bg-gray-600">All Seasons</SelectItem>
             {seasons.map(season => (
-              <SelectItem key={season} value={season}>{season}</SelectItem>
+              <SelectItem key={season} value={season} className="text-white hover:bg-gray-600">{season}</SelectItem>
             ))}
           </SelectContent>
         </Select>
@@ -68,10 +68,10 @@ const Controls: React.FC<ControlsProps> = ({
           <SelectTrigger className="bg-gray-700 border-gray-600 text-white">
             <SelectValue placeholder="All Object Types" />
           </SelectTrigger>
-          <SelectContent className="bg-gray-700 border-gray-600">
-            <SelectItem value="all">All Object Types</SelectItem>
+          <SelectContent className="bg-gray-700 border-gray-600 text-white">
+            <SelectItem value="all" className="text-white hover:bg-gray-600">All Object Types</SelectItem>
             {objectTypes.map(type => (
-              <SelectItem key={type} value={type}>{type}</SelectItem>
+              <SelectItem key={type} value={type} className="text-white hover:bg-gray-600">{type}</SelectItem>
             ))}
           </SelectContent>
         </Select>
@@ -80,10 +80,10 @@ const Controls: React.FC<ControlsProps> = ({
           <SelectTrigger className="bg-gray-700 border-gray-600 text-white">
             <SelectValue placeholder="All Captured Status" />
           </SelectTrigger>
-          <SelectContent className="bg-gray-700 border-gray-600">
-            <SelectItem value="all">All Captured Status</SelectItem>
-            <SelectItem value="captured">Captured</SelectItem>
-            <SelectItem value="not-captured">Not Captured</SelectItem>
+          <SelectContent className="bg-gray-700 border-gray-600 text-white">
+            <SelectItem value="all" className="text-white hover:bg-gray-600">All Captured Status</SelectItem>
+            <SelectItem value="captured" className="text-white hover:bg-gray-600">Captured</SelectItem>
+            <SelectItem value="not-captured" className="text-white hover:bg-gray-600">Not Captured</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -100,7 +100,7 @@ const Controls: React.FC<ControlsProps> = ({
         <Button
           onClick={onExportCSV}
           variant="outline"
-          className="border-gray-600 text-gray-300 hover:bg-gray-700"
+          className="border-gray-600 text-white bg-gray-700 hover:bg-gray-600 hover:text-white"
         >
           <Download className="mr-2 h-4 w-4" />
           Export CSV
