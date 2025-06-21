@@ -8,9 +8,15 @@ import { dsoData, getCatalogData, getAllSeasons, getAllObjectTypes } from '../da
 import { CatalogType, FilterState } from '../types/dso';
 import { toast } from '@/hooks/use-toast';
 
+// Default captured objects from your CSV list
+const DEFAULT_CAPTURED_OBJECTS = new Set([
+  'C11', 'C14', 'C19', 'C20', 'C22', 'C27', 'C30', 'C31', 'C33', 'C34', 'C4', 'C41', 'C44', 'C49', 'C5', 'C63', 'C69', 'C77', 'C80', 'C9',
+  'M1', 'M100', 'M101', 'M104', 'M106', 'M108', 'M109', 'M11', 'M12', 'M13', 'M16', 'M17', 'M19', 'M20', 'M22', 'M24', 'M27', 'M31', 'M33', 'M4', 'M42', 'M44', 'M45', 'M5', 'M51', 'M57', 'M6', 'M62', 'M63', 'M65', 'M66', 'M7', 'M71', 'M76', 'M8', 'M80', 'M81', 'M82', 'M83', 'M84', 'M85', 'M86', 'M95', 'M97', 'M99'
+]);
+
 const Index = () => {
   const [activeTab, setActiveTab] = useState<CatalogType>('Messier');
-  const [capturedObjects, setCapturedObjects] = useState<Set<string>>(new Set());
+  const [capturedObjects, setCapturedObjects] = useState<Set<string>>(new Set(DEFAULT_CAPTURED_OBJECTS));
   const [filters, setFilters] = useState<FilterState>({
     search: '',
     season: 'all',
