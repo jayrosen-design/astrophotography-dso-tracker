@@ -68,9 +68,8 @@ const DsoTable: React.FC<DsoTableProps> = ({ data, capturedObjects, onToggleCapt
         <table className="min-w-full divide-y divide-gray-700">
           <thead className="bg-gray-900">
             <tr>
-              <th className="px-1 md:px-3 py-1 md:py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider w-10 md:w-20">
-                <span className="md:hidden">Status</span>
-                <span className="hidden md:inline">Photographed</span>
+              <th className="px-1 md:px-3 py-1 md:py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider w-8 md:w-20">
+                Status
               </th>
               <th 
                 className="px-1 md:px-3 py-1 md:py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-800 transition-colors w-12 md:w-auto"
@@ -86,7 +85,8 @@ const DsoTable: React.FC<DsoTableProps> = ({ data, capturedObjects, onToggleCapt
                 onClick={() => handleSort('commonName')}
               >
                 <div className="flex items-center space-x-1">
-                  <span>Common Name</span>
+                  <span className="md:hidden">Name</span>
+                  <span className="hidden md:inline">Common Name</span>
                   <SortIcon field="commonName" />
                 </div>
               </th>
