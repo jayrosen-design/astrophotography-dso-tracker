@@ -68,11 +68,12 @@ const DsoTable: React.FC<DsoTableProps> = ({ data, capturedObjects, onToggleCapt
         <table className="min-w-full divide-y divide-gray-700">
           <thead className="bg-gray-900">
             <tr>
-              <th className="px-1 md:px-3 py-2 md:py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider w-12 md:w-20">
-                Photographed
+              <th className="px-1 md:px-3 py-1 md:py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider w-10 md:w-20">
+                <span className="md:hidden">Status</span>
+                <span className="hidden md:inline">Photographed</span>
               </th>
               <th 
-                className="px-1 md:px-3 py-2 md:py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-800 transition-colors w-16 md:w-auto"
+                className="px-1 md:px-3 py-1 md:py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-800 transition-colors w-12 md:w-auto"
                 onClick={() => handleSort('catalog')}
               >
                 <div className="flex items-center space-x-1">
@@ -81,7 +82,7 @@ const DsoTable: React.FC<DsoTableProps> = ({ data, capturedObjects, onToggleCapt
                 </div>
               </th>
               <th 
-                className="px-1 md:px-3 py-2 md:py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-800 transition-colors"
+                className="px-1 md:px-3 py-1 md:py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-800 transition-colors"
                 onClick={() => handleSort('commonName')}
               >
                 <div className="flex items-center space-x-1">
@@ -90,7 +91,7 @@ const DsoTable: React.FC<DsoTableProps> = ({ data, capturedObjects, onToggleCapt
                 </div>
               </th>
               <th 
-                className="px-1 md:px-3 py-2 md:py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-800 transition-colors hidden md:table-cell"
+                className="px-1 md:px-3 py-1 md:py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-800 transition-colors hidden md:table-cell"
                 onClick={() => handleSort('objectType')}
               >
                 <div className="flex items-center space-x-1">
@@ -99,7 +100,7 @@ const DsoTable: React.FC<DsoTableProps> = ({ data, capturedObjects, onToggleCapt
                 </div>
               </th>
               <th 
-                className="px-1 md:px-3 py-2 md:py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-800 transition-colors hidden md:table-cell"
+                className="px-1 md:px-3 py-1 md:py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-800 transition-colors hidden md:table-cell"
                 onClick={() => handleSort('constellation')}
               >
                 <div className="flex items-center space-x-1">
@@ -108,7 +109,7 @@ const DsoTable: React.FC<DsoTableProps> = ({ data, capturedObjects, onToggleCapt
                 </div>
               </th>
               <th 
-                className="px-1 md:px-3 py-2 md:py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-800 transition-colors"
+                className="px-1 md:px-3 py-1 md:py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-800 transition-colors"
                 onClick={() => handleSort('bestSeason')}
               >
                 <div className="flex items-center space-x-1">
@@ -121,26 +122,26 @@ const DsoTable: React.FC<DsoTableProps> = ({ data, capturedObjects, onToggleCapt
           <tbody className="bg-gray-800 divide-y divide-gray-700">
             {sortedData.map((object) => (
               <tr key={object.id} className="hover:bg-gray-750 transition-colors">
-                <td className="px-1 md:px-3 py-2 md:py-4 whitespace-nowrap">
+                <td className="px-1 md:px-3 py-1 md:py-4 whitespace-nowrap">
                   <Checkbox
                     checked={capturedObjects.has(object.id)}
                     onCheckedChange={() => onToggleCapture(object.id)}
                     className="data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600"
                   />
                 </td>
-                <td className="px-1 md:px-3 py-2 md:py-4 whitespace-nowrap text-xs md:text-sm font-medium text-white">
+                <td className="px-1 md:px-3 py-1 md:py-4 whitespace-nowrap text-xs md:text-sm font-medium text-white">
                   {object.catalog}
                 </td>
-                <td className="px-1 md:px-3 py-2 md:py-4 whitespace-nowrap text-xs md:text-sm text-gray-300">
+                <td className="px-1 md:px-3 py-1 md:py-4 whitespace-nowrap text-xs md:text-sm text-gray-300">
                   {object.commonName}
                 </td>
-                <td className="px-1 md:px-3 py-2 md:py-4 whitespace-nowrap text-xs md:text-sm text-gray-300 hidden md:table-cell">
+                <td className="px-1 md:px-3 py-1 md:py-4 whitespace-nowrap text-xs md:text-sm text-gray-300 hidden md:table-cell">
                   {object.objectType}
                 </td>
-                <td className="px-1 md:px-3 py-2 md:py-4 whitespace-nowrap text-xs md:text-sm text-gray-300 hidden md:table-cell">
+                <td className="px-1 md:px-3 py-1 md:py-4 whitespace-nowrap text-xs md:text-sm text-gray-300 hidden md:table-cell">
                   {object.constellation}
                 </td>
-                <td className="px-1 md:px-3 py-2 md:py-4 whitespace-nowrap text-xs md:text-sm text-gray-300">
+                <td className="px-1 md:px-3 py-1 md:py-4 whitespace-nowrap text-xs md:text-sm text-gray-300">
                   {object.bestSeason}
                 </td>
               </tr>
