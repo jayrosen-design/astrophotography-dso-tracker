@@ -52,36 +52,36 @@ const Controls: React.FC<ControlsProps> = ({
           />
         </div>
 
-        <Select value={filters.season} onValueChange={(value) => onFiltersChange({ ...filters, season: value })}>
+        <Select value={filters.season} onValueChange={(value) => onFiltersChange({ ...filters, season: value === 'all' ? '' : value })}>
           <SelectTrigger className="bg-gray-700 border-gray-600 text-white">
             <SelectValue placeholder="All Seasons" />
           </SelectTrigger>
           <SelectContent className="bg-gray-700 border-gray-600">
-            <SelectItem value="">All Seasons</SelectItem>
+            <SelectItem value="all">All Seasons</SelectItem>
             {seasons.map(season => (
               <SelectItem key={season} value={season}>{season}</SelectItem>
             ))}
           </SelectContent>
         </Select>
 
-        <Select value={filters.objectType} onValueChange={(value) => onFiltersChange({ ...filters, objectType: value })}>
+        <Select value={filters.objectType} onValueChange={(value) => onFiltersChange({ ...filters, objectType: value === 'all' ? '' : value })}>
           <SelectTrigger className="bg-gray-700 border-gray-600 text-white">
             <SelectValue placeholder="All Object Types" />
           </SelectTrigger>
           <SelectContent className="bg-gray-700 border-gray-600">
-            <SelectItem value="">All Object Types</SelectItem>
+            <SelectItem value="all">All Object Types</SelectItem>
             {objectTypes.map(type => (
               <SelectItem key={type} value={type}>{type}</SelectItem>
             ))}
           </SelectContent>
         </Select>
 
-        <Select value={filters.capturedStatus} onValueChange={(value) => onFiltersChange({ ...filters, capturedStatus: value })}>
+        <Select value={filters.capturedStatus} onValueChange={(value) => onFiltersChange({ ...filters, capturedStatus: value === 'all' ? '' : value })}>
           <SelectTrigger className="bg-gray-700 border-gray-600 text-white">
             <SelectValue placeholder="All Captured Status" />
           </SelectTrigger>
           <SelectContent className="bg-gray-700 border-gray-600">
-            <SelectItem value="">All Captured Status</SelectItem>
+            <SelectItem value="all">All Captured Status</SelectItem>
             <SelectItem value="captured">Captured</SelectItem>
             <SelectItem value="not-captured">Not Captured</SelectItem>
           </SelectContent>

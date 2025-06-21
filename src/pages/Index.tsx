@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { Telescope } from 'lucide-react';
 import Dashboard from '../components/Dashboard';
@@ -14,9 +13,9 @@ const Index = () => {
   const [capturedObjects, setCapturedObjects] = useState<Set<string>>(new Set());
   const [filters, setFilters] = useState<FilterState>({
     search: '',
-    season: '',
-    objectType: '',
-    capturedStatus: ''
+    season: 'all',
+    objectType: 'all',
+    capturedStatus: 'all'
   });
 
   const seasons = getAllSeasons();
@@ -34,15 +33,15 @@ const Index = () => {
       );
     }
     
-    if (filters.season) {
+    if (filters.season && filters.season !== 'all') {
       data = data.filter(obj => obj.bestSeason === filters.season);
     }
     
-    if (filters.objectType) {
+    if (filters.objectType && filters.objectType !== 'all') {
       data = data.filter(obj => obj.objectType === filters.objectType);
     }
     
-    if (filters.capturedStatus) {
+    if (filters.capturedStatus && filters.capturedStatus !== 'all') {
       if (filters.capturedStatus === 'captured') {
         data = data.filter(obj => capturedObjects.has(obj.id));
       } else if (filters.capturedStatus === 'not-captured') {
