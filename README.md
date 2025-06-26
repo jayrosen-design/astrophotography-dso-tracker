@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/1006117347.svg)](https://doi.org/10.5281/zenodo.15746482)
 
 # Astrophotography DSO Tracker
 
