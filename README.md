@@ -1,73 +1,152 @@
-# Welcome to your Lovable project
 
-## Project info
+# Astrophotography DSO Tracker
 
-**URL**: https://lovable.dev/projects/1dfe0928-08a1-49a7-a1fd-59b4fedb3bea
+A comprehensive web application for tracking Deep Sky Objects (DSOs) across multiple astronomical catalogs. Perfect for astrophotographers and astronomy enthusiasts who want to organize and track their celestial observations.
 
-## How can I edit this code?
+![Messier View](https://github.com/jayrosen-design/astrophotography-dso-tracker/blob/main/public/Screenshot%202025-06-26%20084205.png)
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+### 📊 Multi-Catalog Support
+- **Messier Catalog**: 110 famous nebulae, star clusters, and galaxies
+- **Caldwell Catalog**: 109 additional deep sky objects
+- **Barnard Catalog**: Dark nebulae and dust clouds
+- **Sharpless Catalog**: Emission regions and H-II regions
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/1dfe0928-08a1-49a7-a1fd-59b4fedb3bea) and start prompting.
+### 🎯 Object Tracking
+- Mark objects as captured/observed with a simple click
+- Visual progress tracking with animated progress bars
+- Dashboard showing completion statistics for each catalog
+- Persistent tracking across browser sessions
 
-Changes made via Lovable will be committed automatically to this repo.
+### 🔍 Advanced Filtering
+- Search by object name or catalog designation
+- Filter by season (Spring, Summer, Fall, Winter)
+- Filter by object type (Galaxy, Nebula, Star Cluster, etc.)
+- Filter by captured status (Captured, Not Captured, All)
 
-**Use your preferred IDE**
+![Filtered View](https://github.com/jayrosen-design/astrophotography-dso-tracker/blob/main/public/Screenshot%202025-06-26%20084230.png)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 📁 Data Management
+- **Import CSV**: Upload your existing observation data
+- **Export CSV**: Download your progress for backup or analysis
+- **Reset Function**: Clear all captured objects with confirmation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 📱 Responsive Design
+- Mobile-optimized interface
+- Touch-friendly controls
+- Adaptive layouts for all screen sizes
 
-Follow these steps:
+## Technical Stack
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- **Frontend**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Icons**: Lucide React
+- **State Management**: React Hooks with localStorage persistence
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Installation
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### Setup
+```bash
+# Clone the repository
+git clone https://github.com/jayrosen-design/astrophotography-dso-tracker.git
+
+# Navigate to project directory
+cd astrophotography-dso-tracker
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Usage
 
-**Use GitHub Codespaces**
+### Getting Started
+1. **Browse Catalogs**: Use the tabs to switch between different DSO catalogs
+2. **Track Objects**: Click the capture button (📷) next to any object to mark it as observed
+3. **Monitor Progress**: View your completion statistics in the dashboard cards
+4. **Filter & Search**: Use the control panel to find specific objects or types
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Data Import/Export
+- **Import**: Click "Import CSV" to upload existing observation data
+- **Export**: Click "Export CSV" to download your current progress
+- **Reset**: Use "Reset All" to clear all captured objects (with confirmation)
 
-## What technologies are used for this project?
+### CSV Format
+The application expects CSV files with these columns:
+- `id`: Object identifier (e.g., "M1", "C14", "B33")
+- `catalog`: Catalog name
+- `name`: Object name
+- `type`: Object type
+- `season`: Observing season
+- Additional columns are preserved during import/export
 
-This project is built with:
+## Catalog Information
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Messier Catalog (M1-M110)
+Charles Messier's catalog of 110 astronomical objects, including famous targets like:
+- M1 (Crab Nebula)
+- M31 (Andromeda Galaxy)
+- M42 (Orion Nebula)
+- M45 (Pleiades)
 
-## How can I deploy this project?
+### Caldwell Catalog (C1-C109)
+Patrick Moore's catalog of 109 deep sky objects not included in Messier's list, featuring:
+- C14 (Double Cluster)
+- C49 (Rosette Nebula)
+- C92 (Cat's Eye Nebula)
 
-Simply open [Lovable](https://lovable.dev/projects/1dfe0928-08a1-49a7-a1fd-59b4fedb3bea) and click on Share -> Publish.
+### Barnard Catalog (B1-B366)
+Edward Emerson Barnard's catalog of dark nebulae, including:
+- B33 (Horsehead Nebula)
+- B86 (Ink Spot Nebula)
 
-## Can I connect a custom domain to my Lovable project?
+### Sharpless Catalog (Sh2-1 to Sh2-313)
+Stewart Sharpless's catalog of H-II regions and emission nebulae.
 
-Yes, you can!
+## Development
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Project Structure
+```
+src/
+├── components/          # React components
+│   ├── ui/             # shadcn/ui components
+│   ├── Controls.tsx    # Filter and action controls
+│   ├── Dashboard.tsx   # Progress statistics
+│   ├── DsoTable.tsx    # Object data table
+│   └── CatalogTabs.tsx # Catalog navigation
+├── data/               # Static data files
+├── hooks/              # Custom React hooks
+├── pages/              # Page components
+├── types/              # TypeScript definitions
+└── lib/                # Utility functions
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Contributing
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Support
+
+For questions, suggestions, or issues, please open an issue on the GitHub repository.
+
+---
+
+**Happy stargazing! 🌟**
